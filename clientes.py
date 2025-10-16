@@ -20,23 +20,15 @@ class Cliente:
         """Retorna uma representação legível do cliente."""
         return f"Cliente: {self.nome} ({self.email}, {self.telefone})"
     
-clientes = [
-    Cliente("Ricardo ABCD", "email@email.pt", "919191919"),
-    Cliente("Daniel ABCD", "email1@email.pt", "911191919"),
-    Cliente("Andreia DCBA", "email21@email.pt", "911181919"),
-    Cliente("Manuela CBDA", "email13@email.pt", "911191919"),
-    Cliente("Zé DACB", "email221@email.pt", "911591919"),
-    Cliente("Joaquina ABCD", "email1@email.pt", "913791919"),
-    Cliente("Maria ABCD", "email112@email.pt", "914491919")
-]
 
-def adicionar_cliente(cliente: Cliente):
+
+def adicionar_cliente(clientes: list, cliente: Cliente):
     """Adiciona um cliente à lista de clientes"""
 
     clientes.append(cliente)
     return cliente
 
-def eliminar_cliente(cliente: Cliente):
+def eliminar_cliente(clientes: list, cliente: Cliente):
     """Elimina um cliente da lista de clientes"""
 
     for c in clientes:
@@ -45,8 +37,6 @@ def eliminar_cliente(cliente: Cliente):
             return f"Cliente {c} eliminado com sucesso"
     
 
-def listar_clientes():
-    """Lista todos os clientes"""
-
-    for c in clientes:
-        print(c)
+def listar_clientes(clientes: list):
+    """Retorna todos os clientes em formato legível com índice."""
+    return "\n".join(f"{i} - {c}" for i, c in enumerate(clientes))
