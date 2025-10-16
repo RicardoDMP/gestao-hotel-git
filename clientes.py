@@ -31,10 +31,9 @@ def adicionar_cliente(clientes: list, cliente: Cliente):
 def eliminar_cliente(clientes: list, cliente: Cliente):
     """Elimina um cliente da lista de clientes"""
 
-    for c in clientes:
-        if c == cliente:
-            clientes.remove(c)
-            return f"Cliente {c} eliminado com sucesso"
+    if cliente in clientes:
+        clientes.remove(cliente)
+        return f"Cliente {cliente} eliminado com sucesso"
     
 
 def listar_clientes(clientes: list):
